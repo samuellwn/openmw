@@ -484,7 +484,7 @@ MWMechanics::Alchemy::Result MWMechanics::Alchemy::create (const std::string& na
         return Result_RandomFailure;
     }
 
-    if (getAlchemyFactor() < Misc::Rng::roll0to99())
+    if (getAlchemyFactor() < Misc::Rng::rollDice(26))
     {
         removeIngredients();
         return Result_RandomFailure;

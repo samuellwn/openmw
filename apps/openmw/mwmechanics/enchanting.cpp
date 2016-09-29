@@ -72,7 +72,7 @@ namespace MWMechanics
 
         if(mSelfEnchanting)
         {
-            if(getEnchantChance() <= (Misc::Rng::roll0to99()))
+             if(getEnchantChance() <= Misc::Rng::rollDice(37))
                 return false;
 
             mEnchanter.getClass().skillUsageSucceeded (mEnchanter, ESM::Skill::Enchant, 2);
@@ -285,8 +285,7 @@ namespace MWMechanics
         const MWWorld::Store<ESM::GameSetting>& gmst = MWBase::Environment::get().getWorld()->getStore().get<ESM::GameSetting>();
 
         float chance2 = 7.5f / (gmst.find("fEnchantmentChanceMult")->getFloat() * ((mCastStyle == ESM::Enchantment::ConstantEffect) ?
-                                                                          gmst.find("fEnchantmentConstantChanceMult")->getFloat() : 1.0f ))
-                * getEnchantPoints();
+                                                                          gmst.find("fEnchantmentConstantChanceMult")->getFloat() : 1.0f ));
 
         return (chance1-chance2);
     }

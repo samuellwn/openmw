@@ -315,18 +315,19 @@ void MWMechanics::NpcStats::updateHealth()
 
 int MWMechanics::NpcStats::getLevelupAttributeMultiplier(int attribute) const
 {
-    int num = mSkillIncreases[attribute];
+     return 5;
+    // int num = mSkillIncreases[attribute];
 
-    if (num == 0)
-        return 1;
+    // if (num == 0)
+    //     return 1;
 
-    num = std::min(10, num);
+    // num = std::min(10, num);
 
-    // iLevelUp01Mult - iLevelUp10Mult
-    std::stringstream gmst;
-    gmst << "iLevelUp" << std::setfill('0') << std::setw(2) << num << "Mult";
+    // // iLevelUp01Mult - iLevelUp10Mult
+    // std::stringstream gmst;
+    // gmst << "iLevelUp" << std::setfill('0') << std::setw(2) << num << "Mult";
 
-    return MWBase::Environment::get().getWorld()->getStore().get<ESM::GameSetting>().find(gmst.str())->getInt();
+    // return MWBase::Environment::get().getWorld()->getStore().get<ESM::GameSetting>().find(gmst.str())->getInt();
 }
 
 int MWMechanics::NpcStats::getSkillIncreasesForSpecialization(int spec) const
